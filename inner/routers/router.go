@@ -32,11 +32,13 @@ func InitRouters() *gin.Engine {
 		)
 	}
 	// add health check api
-	r.Any("/ok", func(context *gin.Context) {
+	r.GET("/ok", func(context *gin.Context) {
 		context.AbortWithStatusJSON(http.StatusOK, gin.H{"health": "ok"})
 	})
 	// add api
 	setApiRouter(r)
+	// add ws
+	setWSRouter(r)
 	// not found router
 	r.NoRoute(func(c *gin.Context) {
 		response2.Resp().SetHttpCode(http.StatusNotFound).FailCode(c, errors.NotFound)
