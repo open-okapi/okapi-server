@@ -1,0 +1,38 @@
+# 配置文件
+app:
+  app_env: dev
+  debug: true
+  language: zh_CN
+#  base_path: ""
+server:
+  host: localhost
+  port: 8088
+mysql:
+  enable: true
+  host: localhost
+  port: 3306
+  database: okapi
+  username: root
+  password: root123456
+  charset: utf8mb4
+  table_prefix: ""
+  max_idle_conns: 10
+  max_open_conns: 100
+  max_lifetime: 3600s
+redis:
+  enable: true
+  host: localhost
+  port: 6379
+  password: 12345678
+  database: 0
+logger:
+  default_division: time
+  file_name: okapi-server.sys.log
+  division_time:
+    max_age: 15
+    rotation_time: 24
+  division_size:
+    max_size: 20
+    max_backups: 15
+    max_age: 15
+    compress: false
